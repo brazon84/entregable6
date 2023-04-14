@@ -13,7 +13,7 @@ const Form = () => {
 
   const submit = data => {
     console.log(data);
-    const URL = 'https://e-commerce-api-v2.academlo.tech/api/v1/users/login/'
+    const URL = 'https://e-commerce-api-v2.academlo.tech/api/v1/users/login'
     axios.post(URL, data)
       .then(res => {
         localStorage.setItem('token', res.data.token)

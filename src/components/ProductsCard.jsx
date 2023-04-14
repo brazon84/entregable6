@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getAllCartProducts } from '../store/slices/cart.slice';
 import getConfig from '../utils/getConfig';
+import {getAllProducts2} from '../store/slices/getAllProducts.slice';
 
 const ProductsCard = ({ product }) => {
   const navigate = useNavigate();
@@ -14,8 +15,8 @@ const ProductsCard = ({ product }) => {
   const addProductCart = (e) => {
     e.stopPropagation();
 
-    const URL = 'https://e-commerce-api-v2.academlo.tech/api/v1/cart';
-
+    const URL = 'https://e-commerce-api-v2.academlo.tech/api/v1/products';
+   
     const objectProduct = {
       id: product.id,
       quantity: 1,
@@ -38,7 +39,7 @@ const ProductsCard = ({ product }) => {
   return (
     <div className="card" onClick={clickCard}>
       <div className="imgBx">
-        <img src={product.productImgs[0]} alt="Image 1" />
+        <img src={product.images[0].url} alt="Image 1" />
       </div>
 
       <div className="content">

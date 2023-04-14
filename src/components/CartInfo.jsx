@@ -4,12 +4,12 @@ import getConfig from '../utils/getConfig'
 import { useDispatch } from 'react-redux'
 import { getAllCartProducts } from '../store/slices/cart.slice'
 
-const CartInfo = ({productCart}) => {
+const CartInfo = ({productCard}) => {
 
     const dispatch = useDispatch()
 
     const deleteProductFromCart = () => {
-        const URL = `https://e-commerce-api-v2.academlo.tech/api/v1/cart/${productCart.id}`
+        const URL = `https://e-commerce-api-v2.academlo.tech/api/v1/cart/${productCard.id}`
 
         axios.delete(URL, getConfig())
             .then(res => {
@@ -23,16 +23,16 @@ const CartInfo = ({productCart}) => {
     <article className='bg__cart'>
         <div className='cart__card'>
             <div className='primaryInfo__cart'>
-                <p>{productCart.brand}</p>
-                <h4>{productCart.title}</h4>
+                <p>{productCard.brand}</p>
+                <h4>{productCard.title}</h4>
             </div>
             <div className='secondaryInfo__cart'>
                 <p>Total:</p>
-                <h4>USD: {productCart.price * productCart.productsInCart.quantity}</h4>
+                <h4>USD: {productCard.price * productCard.productsInCard.quantity}</h4>
             </div>
             <div className='thirdInfo__cart'>
                 <p>Quantity:</p>
-                <h4>{productCart.productsInCart.quantity}</h4>
+                <h4>{productCard.productsInCard.quantity}</h4>
             </div>
         </div>
         <hr />

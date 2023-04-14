@@ -10,16 +10,15 @@ import Purchases from './components/Purchases'
 import Header from './components/Header'
 import ProductInfo from './components/ProductInfo'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllProducts } from './store/slices/products.slice'
+import { getAllProducts } from './store/slices/getAllProducts.slice.js'
 import axios from 'axios'
 import Footer from './components/Footer'
 
 function App() {
 
-  const dispatch = useDispatch ()
+ const dispatch = useDispatch ()
 
-  useEffect(() => {
-    dispatch(getAllProducts())
+ useEffect(() => {  dispatch(getAllProducts())
   }, [])
 
   //Elemento de control de cambio de menú.
@@ -110,13 +109,14 @@ function App() {
             <div className='indicator'></div>
           </ul>
         </div>
+        
       </nav>
     
       <Routes>
         <Route path='/' element={ <Home /> } />
         <Route path='/products' element={ <Products /> } />
         <Route path='/products/:id' element={ <ProductInfo /> } />
-        <Route path='/categories/:categoryId' element={ <Products /> } />
+        <Route path='/categories/:name' element={ <Products /> } />
         <Route path='/login' element={ <Login /> } />
 
         <Route element={ <ProtectedRoutes isLogged={true} /> } >

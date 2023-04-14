@@ -26,7 +26,7 @@ const ProductInfo = () => {
         }
         axios.post(URL, addProduct, getConfig() )
             .then(res => {
-                console.log(res.data)
+                console.log(res.data.product)
                 dispatch(getAllCartProducts())
             })
             .catch(error => console.log(error.data))
@@ -38,8 +38,7 @@ const ProductInfo = () => {
             .then(res => setProductInfo(res.data.product))
             .catch(error => console.log(error))
     }, [id])
-
-    console.log(productInfo);
+ 
 
     const clickPrev = () => {
         const prevClass = indexClass - 1

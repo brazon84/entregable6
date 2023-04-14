@@ -11,6 +11,7 @@ const InputSelect = () => {
   const clickOption = () => {
     if (filterSelected) {
       navigate(`/categories/${filterSelected}`);
+      alert(filterSelected);
     }
   };
 
@@ -20,7 +21,8 @@ const InputSelect = () => {
     const URL = 'https://e-commerce-api-v2.academlo.tech/api/v1/categories';
     axios
       .get(URL)
-      .then((res) => setFilter(res.data?.data.categories))
+      .then((res) => {setFilter(res.data)
+                      console.log(res.data)     })
       .catch((error) => console.log(error));
   }, []);
 
